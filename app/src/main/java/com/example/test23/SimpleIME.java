@@ -8,9 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputConnection;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +36,9 @@ public class SimpleIME extends InputMethodService
         kv.setKeyboard(keyboards.get(current));
         kv.setOnKeyboardActionListener(this);
         for (Keyboard keyboard: keyboards.values()) {
-            Log.i("KEYBOARD", "OK1");
+            Log.i("MATHNOTELITE", "OK1");
             for (Keyboard.Key key : keyboard.getKeys()) {
-                Log.i("KEYBOARD", key.label.toString());
+//                Log.i("MATHNOTELITE", key.label.toString());
                 if (key.label == null) continue;
                 if (labelToIgnore.contains(key.label)) continue;
                 if (key.label.length() < 2) continue;
@@ -96,18 +94,24 @@ public class SimpleIME extends InputMethodService
                 CharSequence surrounding = ic.getTextBeforeCursor(10, 0);
                 String[] parts = surrounding.toString().split(" ");
                 String oldText = parts[parts.length-1];
-                Log.i("KEYBOARD", "Surrounding: " + oldText);
+                Log.i("MATHNOTELITE", "Surrounding: " + oldText);
                 StringBuilder newText = new StringBuilder();
+                boolean replaced = false;
                 for (char c: parts[parts.length-1].toCharArray()) {
                     if (repeated.containsKey(c)) {
-                        Log.i("KEYBOARD", "Replacing " + c + " with " + repeated.get(c));
+                        replaced = true;
+                        Log.i("MATHNOTELITE", "Replacing " + c + " with " + repeated.get(c));
+                        newText.append(repeated.get(c));
                         newText.append(repeated.get(c));
                     } else {
                         newText.append(c);
                     }
                 }
-                ic.deleteSurroundingText(oldText.length(), 0);
-                ic.commitText(newText, 1);
+                if (replaced) {
+                    newText.append(" ");  // Extra char that will be deleted
+                    ic.deleteSurroundingText(oldText.length(), 0);
+                    ic.commitText(newText, 1);
+                }
                 break;
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
