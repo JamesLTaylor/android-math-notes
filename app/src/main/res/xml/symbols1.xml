@@ -1,0 +1,50 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="10%p"
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
+    android:keyHeight="40dp"
+    >
+    <Row>
+        <Key android:codes="49,185,8321" android:keyLabel="\u0031\u00B9\u2081" android:keyEdgeFlags="left"/>
+        <Key android:codes="50,178,8322" android:keyLabel="\u0032\u00B2\u2082"/>
+        <Key android:codes="51,179,8323" android:keyLabel="\u0033\u00B3\u2083"/>
+        <Key android:codes="52,8308,8324" android:keyLabel="\u0034\u2074\u2084"/>
+        <Key android:codes="53,8309,8325" android:keyLabel="\u0035\u2075\u2085"/>
+        <Key android:codes="54,8310,8326" android:keyLabel="\u0036\u2076\u2086"/>
+        <Key android:codes="55,8311,8327" android:keyLabel="\u0037\u2077\u2087"/>
+        <Key android:codes="56,8312,8328" android:keyLabel="\u0038\u2078\u2088"/>
+        <Key android:codes="57,8313,8329" android:keyLabel="\u0039\u2079\u2089"/>
+        <Key android:codes="48,8304,8320" android:keyLabel="\u0030\u2070\u2080" android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="43,45,959" android:keyLabel="\u002B\u002D\u03BF" android:keyEdgeFlags="left"/>
+        <Key android:codes="42,47,8729" android:keyLabel="\u002A\u002F\u2219"/>
+        <Key android:codes="61,8764,126,8776" android:keyLabel="\u003D\u223C\u007E\u2248"/>
+        <Key android:codes="124,58,59" android:keyLabel="\u007C\u003A\u003B"/>
+        <Key android:codes="8594,8614" android:keyLabel="\u2192\u21A6"/>
+        <Key android:codes="8855,8853" android:keyLabel="\u2297\u2295"/>
+        <Key android:codes="33,63" android:keyLabel="\u0021\u003F"/>
+        <Key android:codes="35,36,64" android:keyLabel="\u0023\u0024\u0040"/>
+        <Key android:codes="34,96,39" android:keyLabel="\u0022\u0060\u0027"/>
+        <Key android:codes="46,44,94,95" android:keyLabel="\u002E\u002C\u005E\u005F" android:keyEdgeFlags="right"/>
+    </Row>
+    <Row>
+        <Key android:codes="-1" android:keyLabel="ABC" android:keyWidth="10%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="8898,8899,8712" android:keyLabel="\u22C2\u22C3\u2208"/>
+        <Key android:codes="8709,8713,8834" android:keyLabel="\u2205\u2209\u2282"/>
+        <Key android:codes="8804,8800,8805" android:keyLabel="\u2264\u2260\u2265"/>
+        <Key android:codes="8315,8317,8318" android:keyLabel="\u207B\u207D\u207E"/>
+        <Key android:codes="32" android:keyLabel="\u0020"/>
+        <Key android:codes="32" android:keyLabel="\u0020"/>
+        <Key android:codes="37,38,92" android:keyLabel="\u0025\u0026\u005C"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete_small" android:keyWidth="20%p" android:isRepeatable="true"/>
+    </Row>
+    <Row android:rowEdgeFlags="bottom">
+        <Key android:codes="-3" android:keyLabel="abc" android:keyWidth="10%p"  android:keyEdgeFlags="left"/>
+        <Key android:codes="-6,-7" android:keyLabel="--" android:keyWidth="10%p" />
+        <Key android:codes="40,91,123,60" android:keyLabel="\u0028\u005B\u007B\u003C"/>
+        <Key android:codes="32" android:keyLabel="SPACE" android:keyWidth="40%p" android:isRepeatable="true"/>
+        <Key android:codes="41,93,125,62" android:keyLabel="\u0029\u005D\u007D\u003E"/>
+        <Key android:codes="-4" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="20%p" android:keyEdgeFlags="right"/>
+    </Row>
+</Keyboard>
