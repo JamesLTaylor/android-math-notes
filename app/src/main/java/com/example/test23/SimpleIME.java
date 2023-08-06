@@ -90,7 +90,7 @@ public class SimpleIME extends InputMethodService
                 break;
             case -7:
                 CharSequence surrounding = ic.getTextBeforeCursor(10, 0);
-                String[] parts = surrounding.toString().split(" ");
+                String[] parts = surrounding.toString().split("\\s+");
                 String oldText = parts[parts.length-1];
                 Log.i("MATHNOTELITE", "Surrounding: " + oldText);
                 StringBuilder newText = new StringBuilder();
