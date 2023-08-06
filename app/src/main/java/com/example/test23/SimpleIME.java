@@ -36,9 +36,7 @@ public class SimpleIME extends InputMethodService
         kv.setKeyboard(keyboards.get(current));
         kv.setOnKeyboardActionListener(this);
         for (Keyboard keyboard: keyboards.values()) {
-            Log.i("MATHNOTELITE", "OK1");
             for (Keyboard.Key key : keyboard.getKeys()) {
-//                Log.i("MATHNOTELITE", key.label.toString());
                 if (key.label == null) continue;
                 if (labelToIgnore.contains(key.label)) continue;
                 if (key.label.length() < 2) continue;
@@ -96,10 +94,10 @@ public class SimpleIME extends InputMethodService
                 String oldText = parts[parts.length-1];
                 Log.i("MATHNOTELITE", "Surrounding: " + oldText);
                 StringBuilder newText = new StringBuilder();
-                boolean replaced = false;
+                int replaced = 0;
                 for (char c: parts[parts.length-1].toCharArray()) {
                     if (repeated.containsKey(c)) {
-                        replaced = true;
+                        replaced += 1;
                         Log.i("MATHNOTELITE", "Replacing " + c + " with " + repeated.get(c));
                         newText.append(repeated.get(c));
                         newText.append(repeated.get(c));
@@ -107,10 +105,11 @@ public class SimpleIME extends InputMethodService
                         newText.append(c);
                     }
                 }
-                if (replaced) {
-                    newText.append(" ");  // Extra char that will be deleted
+                if (replaced==1) {
                     ic.deleteSurroundingText(oldText.length(), 0);
                     ic.commitText(newText, 1);
+                } else {
+                    ic.deleteSurroundingText(1, 0);
                 }
                 break;
             case Keyboard.KEYCODE_DONE:
